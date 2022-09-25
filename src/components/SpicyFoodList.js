@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { spicyFoods, getNewRandomSpicyFood} from "../data"
+import { spicyFoods, getNewSpicyFood} from "../data"
 
 function SpicyFoodList() {
   const [foods, setFoods] = useState(spicyFoods);
@@ -10,14 +10,14 @@ function SpicyFoodList() {
     setFoods(newFoodArray);
   }
 
-  function handleCick(id) {
+  function handleClick(id) {
     const newFoodArray = foods.filter((food) =>food.id !==id);
     setFoods(newFoodArray);
   }
 
 
   const foodList = foods.map((food) => (
-    <li key={food.id} onClick={() =>handleCick(food.id)}>
+    <li key={food.id} onClick={() =>handleClick(food.id)}>
       {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
     </li>
   ));
